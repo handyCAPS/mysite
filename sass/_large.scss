@@ -1,0 +1,68 @@
+@media screen and (min-width: 768px) {
+
+header {
+	background-color: $dark;
+	overflow: hidden;
+		nav {
+			display: inline-block;
+			float: right;
+				ul {
+					margin: 0;
+					list-style: none;
+					overflow: hidden;
+					padding: 0;
+						li {
+							float: left;
+							width: auto;
+							margin: 0 auto;
+							padding: $step-2 + em $step2 + em;
+							border: none;
+							box-shadow: none;
+								a {
+									text-decoration: none;
+									color: $linkColor;
+									font-size: $step2 + em;
+								}
+						}
+				}
+		}
+}
+
+h1 {
+	font-size: $step4 + em;
+	text-shadow: 	1px 0.5px 0px darken($pink, 16),
+					2px 2.5px 0px darken($pink, 16),
+					2px 3px 0px darken($pink, 16),
+					3px 4px 0px darken($pink, 16);
+}
+
+.inner_wrap {
+	max-width: $step5 * $step5 + em;
+	margin: 0 auto;
+}
+
+#hwrap {
+	h3 {
+		display: inline-block;
+	}
+}
+.sections {
+	min-height: $step6 + $step7 + em;
+		h2 {
+				&:after {
+					width: $step2 + em;
+				}
+				&:before {
+					width: $step2 + em;
+				}
+		}
+		p {
+		
+	}
+}
+
+.icon-reorder {
+	display: none;
+}
+
+}
