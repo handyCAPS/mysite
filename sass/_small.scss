@@ -11,6 +11,7 @@ body, html {
 	width: 100%;
 	font-size: $fontBase;
 	font-family: 'Average', serif;
+	color: $black;
 }
 
 h1, h2, h3, h4, h5 {
@@ -32,6 +33,17 @@ h1 {
 a {
 	text-decoration: none;
 	color: $linkColor;
+	transition: color 0.3s ease-out;
+		&:hover {
+			color: lighten($linkColor, 6);
+			text-decoration: underline;
+			-moz-text-decoration-style: dashed;
+			-webkit-text-decoration-style: dashed;
+			text-decoration-style: dashed; 
+			-moz-text-decoration-color: lighten($linkColor, 16);
+			-webkit-text-decoration-color: lighten($linkColor, 16);
+			text-decoration-color: lighten($linkColor, 16);
+		}
 }
 
 p {
@@ -94,12 +106,15 @@ header {
 								// 	border-top: none;
 								// }
 								a {
-									display: inline-block;
+									display: block;
 									width: 100%;
 									text-decoration: none;
 									color: $linkColor;
 									font-size: $step2 + em;
 									font-family: $headerFont;
+										&:hover {
+											text-decoration: none;
+										}
 								}
 						}
 				}
@@ -230,7 +245,7 @@ header {
 #wpStamp {
 	// opacity: 0.6;
 	width: $step5 + rem;
-	margin: $step2 + rem $step1 + rem $step-1 + rem $step-1 + rem;
+	margin: $step2 + rem $step2 + rem $step-1 + rem $step-1 + rem;
 	background-color: $pink;
 	border-radius: 50%;
 	animation-duration: 30s;
@@ -265,7 +280,6 @@ header {
 	font-size: $step3 + em;
 	margin: 0 $step-1 + em;
 	float: right;
-	transition: opacity 0.4s ease;
 		&:hover {
 			cursor: pointer;
 		}

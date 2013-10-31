@@ -9,8 +9,9 @@ function tido_styles() {
 	wp_register_style('screen', THEMEPATH . '/stylesheets/screen.css', array(), null );
 	wp_register_style('font-awesome', THEMEPATH . '/stylesheets/font-awesome.min.css', array(), null );
 
-	wp_enqueue_style('screen');
 	wp_enqueue_style('font-awesome');
+	wp_enqueue_style('screen');
+	
 
 	// javascript
 	wp_register_script('jquery_local', THEMEPATH . '/js/jquery-1.10.2.min.js', array(), null, true );
@@ -25,3 +26,18 @@ function tido_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'tido_styles' );
+
+// Register Navigation Menus
+function tido_navigation_menus() {
+
+	$locations = array(
+		'header_menu' => __( 'Custom Header Menu', 'timdoppenberg' ),
+		'footer_menu' => __( 'Custom Footer Menu', 'timdoppenberg' ),
+		'mobile_footer' => __( 'Footer Menu on mobile devices', 'timdoppenberg' ),
+	);
+	register_nav_menus( $locations );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tido_navigation_menus' );
