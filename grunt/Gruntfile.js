@@ -10,9 +10,8 @@ module.exports = function(grunt) {
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-    wpFolder: '<%= pkg.wp.folder %>',
+    wpFolder: '<%= pkg.wp.themename %>',
     wpRemote: '<%= pkg.wp.remote %>',
-    wpPluginFolder: '<%= pkg.wp.pluginFolder %>',
 
     // Task configuration.
     concat: {
@@ -77,7 +76,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '../lib/scss',
           src: '**/*.scss',
-          dest: '../lib/css',
+          dest: '../lib/proc/css',
           ext: '.css'
         }]
       },
@@ -99,11 +98,11 @@ module.exports = function(grunt) {
     autoprefixer: {
       dev: {
         expand: true,
-        src: '../lib/css/**/*.css'
+        src: '../lib/proc/css/**/*.css'
       },
       dist: {
         expand: true,
-        src: '../dist/css/**/*.css'
+        src: '../dist/proc/css/**/*.css'
       }
     },
     watch: {
@@ -127,6 +126,26 @@ module.exports = function(grunt) {
       grunt: {
         files: 'Gruntfile.js',
         tasks: ['jshint:gruntfile']
+      }
+    },
+    copy: {
+      themePhp: {
+        expand: true,
+        cwd: '../lib/php',
+        src: ['**/*.php'],
+        dest: '../lib/theme/'
+      },
+      themeStyles: {
+        expand: true,
+        cwd: '../lib/proc',
+        src: ['**/*.js', '**/*.css'],
+        dest: '../lib/theme/'
+      },
+      themeRemote: {
+        expand: true,
+        cwd: '../lib/theme',
+        src: '**',
+        dest: '<%= wpRemote %>/themes/<%= wpFolder %>'
       }
     }
 

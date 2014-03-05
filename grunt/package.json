@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "wp": {
+    "themename": "timdoppenberg",
+    "remote": "../../wp-fresh/wp-content"
+    },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
